@@ -1,0 +1,55 @@
+name: Ubuntu News robot
+
+on:
+  schedule:
+    - cron: "17 * * * *"      # every hour, at 17 minutes past
+  workflow_dispatch:           # lets you press "Run workflow" by hand to test
+    inputs:
+      force_batch:
+        description: "Make new posts right now (ignore the timer and quiet hours)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: ubuntu-news-robot     # never two runs at the same time
+  cancel-in-progress: false
+
+permissions:
+  contents: write              # lets the robot save its notes (queue.json and so on)
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install a font for the picture cards
+        run: sudo apt-get install -y --no-install-recommends fonts-dejavu-core || true
+
+      - name: Install Pillow
+        run: pip install -r requirements.txt
+
+      - name: Run the robot
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          FB_MAX_PER_RUN: "1"
+          FORCE_BATCH: ${{ inputs.force_batch }}
+        run: python run_pipeline.py
+
+      - name: Save the robot's notes
+        if: always()
+        run: |
+          git config user.name "ubuntu-news-robot"
+          git config user.email "robot@users.noreply.github.com"
+          for f in queue.json seen.json state.json; do [ -f "$f" ] && git add "$f"; done
+          git diff --cached --quiet || (git commit -m "Robot notes" && git push)
