@@ -1,0 +1,24 @@
+{
+  "_help": "Add or remove feeds here. 'name' is just a label. 'url' is any RSS or Atom link.",
+  "feeds": [
+    {
+      "name": "Google News: Pan-Africanism",
+      "url": "https://news.google.com/rss/search?q=%22Pan-Africanism%22+OR+%22Pan-African%22&hl=en-NG&gl=NG&ceid=NG:en"
+    },
+    {
+      "name": "Google News: African Union",
+      "url": "https://news.google.com/rss/search?q=%22African+Union%22&hl=en-NG&gl=NG&ceid=NG:en"
+    },
+    {
+      "name": "Google News: AfCFTA",
+      "url": "https://news.google.com/rss/search?q=AfCFTA&hl=en-NG&gl=NG&ceid=NG:en"
+    },
+    {
+      "name": "Google News: African unity",
+      "url": "https://news.google.com/rss/search?q=%22African+unity%22+OR+%22United+States+of+Africa%22&hl=en-NG&gl=NG&ceid=NG:en"
+    }
+  ],
+  "max_age_days": 3,
+  "max_stories_per_run": 10,
+  "must_not_contain": ["casino", "betting", "giveaway"]
+}

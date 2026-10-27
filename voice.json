@@ -1,0 +1,38 @@
+{
+  "_help": "How the page sounds and when the robot posts. Change only the words inside the quotes and the numbers.",
+  "page_name": "Ubuntu News",
+  "audience": "Africans at home and in the diaspora who care about African unity, self-reliance and Pan-Africanism",
+  "tone": "proud, hopeful, clear and respectful. Simple English that anyone can follow.",
+  "max_caption_words": 60,
+  "max_hashtags": 3,
+  "always_hashtags": ["#PanAfricanism"],
+  "max_posts_per_run": 1,
+  "prefer": [
+    "African Union decisions and African leaders working together",
+    "intra-African trade and AfCFTA",
+    "African-owned businesses, innovation and young Africans",
+    "African history and the Ubuntu idea of 'I am because we are'"
+  ],
+  "avoid": [
+    "stock market and share-price news about single companies",
+    "crime stories and arrests",
+    "sports, unless the story is clearly about African unity",
+    "praising or attacking political parties or candidates",
+    "anything hateful toward any group of people"
+  ],
+  "models": [
+    "gemini-3.5-flash-lite",
+    "gemini-3.8-flash",
+    "gemini-3.1-flash-lite",
+    "gemini-2.5-flash-lite"
+  ],
+  "schedule": {
+    "approval_mode": "veto",
+    "veto_hours": 2,
+    "hours_between_batches": 8,
+    "max_posts_per_day": 3,
+    "quiet_hours_start": 22,
+    "quiet_hours_end": 7,
+    "timezone_offset_hours": 1
+  }
+}
