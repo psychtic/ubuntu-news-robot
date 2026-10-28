@@ -91,10 +91,14 @@
       "source": "SoftPower News",
       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOZjVuSGtWbnpWWFp4SGJrTU9vSTgtYWY5VGZSbXZ0MXVaUkNQY08xd2tBYjlnTktucHV5dUVtUTRTSU5Ec2h3OXZnN3dpM1ZlbTVBeXdGTVIyVjNoUFpvc0piLXB6bkZsOGpDc0Vha0RCelJIcEc0N3RLNGJsQlc4YlZ5U0pmZjRfRzJGSGVxNDdQSEhKUDR6QzVubHYtUQ?oc=5",
       "caption": "Our youth are the future of our continent! The African Union has opened continental digital talks and invited young people to design the 2027 summit logo. How can we better include our youth in major continental decisions?\nSource: SoftPower News\n#PanAfricanism #AfricanYouth #Ubuntu",
-      "status": "sent",
+      "status": "posted",
       "sent_at": "2026-10-28T11:54:44.719180+00:00",
       "post_after": "2026-10-28T13:54:44.719206+00:00",
-      "message_id": 12
+      "message_id": 12,
+      "decided_at": "2026-10-28T18:53:10.621835+00:00",
+      "auto_released": true,
+      "posted_at": "2026-10-28T18:53:14.006120+00:00",
+      "fb_post_id": "520041767864473_122189747996743689"
     }
   ]
 }
