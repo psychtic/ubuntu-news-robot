@@ -136,10 +136,14 @@
       "source": "UA.NEWS",
       "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQVmdPYmdkc2x1ZXNaQ0lLTlhuTEJVYS1JVFFSRkwyb2h4M2lvYmNpLUQ4dnN3RkRueC1Lc0ljT0hUQWtzR2VPcTNLMmtybzNKbTBocFo0QkktQ3lTZzNuWHdFSVNqbjQ1QVl0NzUzTzBVLWV5aU5nZVFhckVqZl9RQ3I5TWlPaVd2b1dLakVtNTIzTnNB?oc=5",
       "caption": "Voices from the ground! Women traders in Kenya are speaking out on how AfCFTA is being implemented. How can we ensure our women traders truly benefit from continental trade? \nSource: UA.NEWS\n\n#PanAfricanism #AfCFTA #AfricanTrade",
-      "status": "sent",
+      "status": "posted",
       "sent_at": "2026-10-31T07:00:32.727874+00:00",
       "post_after": "2026-10-31T09:00:32.727889+00:00",
-      "message_id": 17
+      "message_id": 17,
+      "decided_at": "2026-10-31T13:40:13.095179+00:00",
+      "auto_released": true,
+      "posted_at": "2026-10-31T13:40:19.764088+00:00",
+      "fb_post_id": "520041767864473_122190032510743689"
     }
   ]
 }
