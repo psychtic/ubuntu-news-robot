@@ -151,10 +151,12 @@
       "source": "Digital Watch Observatory",
       "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFAtaWpBaDJBQlZUbWxqdk1tRXJmRElHbjhKcUlPcFZkM2lXYWN1MC0yUW41ZFA1Z2ZQaWlacjFaaWh4TjQ0RUhsSERjVkl3R01VVHF6d3I2RjJnVFdTSGRqa3ZNNkRZZ1VTYlNtLUJlVlAzcHBneVR3?oc=5",
       "caption": "Working together for a safer continent! The African Union has officially accredited Nigeria’s counter-terrorism centre. When our nations cooperate on security, we build a stronger home for all of us. How can regional security partnerships better protect our communities? \n\nSource: Digital Watch Observatory\n#PanAfricanism #AfricanUnion #Ubuntu",
-      "status": "sent",
+      "status": "approved",
       "sent_at": "2026-10-31T18:35:36.697366+00:00",
       "post_after": "2026-10-31T20:35:36.697387+00:00",
-      "message_id": 18
+      "message_id": 18,
+      "decided_at": "2026-10-31T22:30:29.611067+00:00",
+      "auto_released": true
     }
   ]
 }
