@@ -121,12 +121,25 @@
       "source": "newsnote",
       "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNaWtneUFIZXdnZ0hBU3h5WUZCVUUxVHoyRzdVN1pSamJlYnFkcFIzM0VFRk9GNVluZkJ3MmJteklaQjQ0MDRkMnZIdDVoNEsxUHZNMVc1U0JGRFR6X2MzblNYUkZFOWxrWWFlbzhEeGU4Z2RvRV9wSEJrb2psYjlkUmd4dW93QmFQSTI1enMyOXZVQQ?oc=5",
       "caption": "Justice for our global family! Reparatory justice takes center stage at the latest Africa and Diaspora Conference. When we stand together across oceans, our voice is truly unstoppable. How can we best unite our efforts worldwide? \nSource: newsnote\n#PanAfricanism #AfricanDiaspora #Unity",
-      "status": "approved",
+      "status": "posted",
       "sent_at": "2026-10-30T20:49:54.694548+00:00",
       "post_after": "2026-10-30T22:49:54.694567+00:00",
       "message_id": 14,
       "decided_at": "2026-10-31T00:48:51.830895+00:00",
-      "auto_released": true
+      "auto_released": true,
+      "posted_at": "2026-10-31T07:00:24.111951+00:00",
+      "fb_post_id": "520041767864473_122189998592743689"
+    },
+    {
+      "id": "d75bb5c6",
+      "title": "Women traders in Kenya criticize AfCFTA implementation — Nation Kenya",
+      "source": "UA.NEWS",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQVmdPYmdkc2x1ZXNaQ0lLTlhuTEJVYS1JVFFSRkwyb2h4M2lvYmNpLUQ4dnN3RkRueC1Lc0ljT0hUQWtzR2VPcTNLMmtybzNKbTBocFo0QkktQ3lTZzNuWHdFSVNqbjQ1QVl0NzUzTzBVLWV5aU5nZVFhckVqZl9RQ3I5TWlPaVd2b1dLakVtNTIzTnNB?oc=5",
+      "caption": "Voices from the ground! Women traders in Kenya are speaking out on how AfCFTA is being implemented. How can we ensure our women traders truly benefit from continental trade? \nSource: UA.NEWS\n\n#PanAfricanism #AfCFTA #AfricanTrade",
+      "status": "sent",
+      "sent_at": "2026-10-31T07:00:32.727874+00:00",
+      "post_after": "2026-10-31T09:00:32.727889+00:00",
+      "message_id": 17
     }
   ]
 }
