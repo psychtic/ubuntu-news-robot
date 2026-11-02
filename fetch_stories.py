@@ -3,6 +3,11 @@
 Reads feeds.json, downloads each feed, keeps recent stories you have not seen
 before, and saves them to stories.json for the next step (caption writing).
 
+Freshness rules:
+  - Age is counted in hours ("max_age_hours" in feeds.json; if missing, the old
+    "max_age_days" setting is used instead).
+  - Stories with no publish date are skipped (unless feeds.json has "allow_undated": true).
+
 Uses only Python's standard library, so there is nothing to install.
 Run it with:  python fetch_stories.py
 """
@@ -103,8 +108,13 @@ def main():
     for queued in load_json(BASE / "queue.json", {"items": []}).get("items", []):
         seen.add(queued.get("link", ""))
         seen.add("title:" + queued.get("title", "").lower())
-    oldest_allowed = datetime.now(timezone.utc) - timedelta(days=config["max_age_days"])
+
+    now = datetime.now(timezone.utc)
+    max_age_hours = float(config.get("max_age_hours", config.get("max_age_days", 2) * 24))
+    oldest_allowed = now - timedelta(hours=max_age_hours)
+    allow_undated = bool(config.get("allow_undated", False))
     banned = [word.lower() for word in config.get("must_not_contain", [])]
+    print(f"Freshness rule: only stories from the last {max_age_hours:g} hours.")
 
     found = []
     for feed in config["feeds"]:
@@ -117,10 +127,16 @@ def main():
         found.extend(stories)
 
     fresh, titles_this_run = [], set()
+    too_old = undated = 0
     for story in found:
         if not story["title"] or not story["link"]:
             continue
-        if story["published"] and story["published"] < oldest_allowed:
+        if story["published"] is None:
+            if not allow_undated:
+                undated += 1
+                continue  # no date means we cannot prove it is fresh
+        elif story["published"] < oldest_allowed:
+            too_old += 1
             continue
         key = "title:" + plain_title(story).lower()
         if story["link"] in seen or key in seen or ("title:" + story["title"].lower()) in seen:
@@ -132,6 +148,8 @@ def main():
         titles_this_run.add(key)
         fresh.append(story)
 
+    print(f"Skipped {too_old} too-old stories and {undated} stories with no date.")
+
     # newest first, then keep only as many as the config allows
     fresh.sort(
         key=lambda s: s["published"] or datetime.min.replace(tzinfo=timezone.utc),
@@ -140,6 +158,11 @@ def main():
     fresh = fresh[: config["max_stories_per_run"]]
 
     for story in fresh:
+        if story["published"]:
+            age = (now - story["published"]).total_seconds() / 3600
+            story["age_hours"] = round(max(age, 0), 1)
+        else:
+            story["age_hours"] = None
         story["published"] = story["published"].isoformat() if story["published"] else None
 
     OUTPUT_FILE.write_text(json.dumps(fresh, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -148,7 +171,7 @@ def main():
 
     print(f"\nSaved {len(fresh)} new stories to {OUTPUT_FILE.name}")
     for story in fresh:
-        print(f"- {story['title']}  ({story['source']})")
+        print(f"- {story['title']}  ({story['source']}, {story['age_hours']}h old)")
 
 
 if __name__ == "__main__":
