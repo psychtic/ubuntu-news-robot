@@ -9,6 +9,10 @@ on:
         description: "Make new posts right now (ignore the timer and quiet hours)"
         type: boolean
         default: false
+      make_video:
+        description: "Make a Prof. Ubuntu test video (sent to Telegram only)"
+        type: boolean
+        default: false
 
 concurrency:
   group: ubuntu-news-robot     # never two runs at the same time
@@ -20,7 +24,7 @@ permissions:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
@@ -32,7 +36,7 @@ jobs:
       - name: Install a font for the picture cards
         run: sudo apt-get install -y --no-install-recommends fonts-dejavu-core || true
 
-      - name: Install Pillow
+      - name: Install the robot's tools
         run: pip install -r requirements.txt
 
       - name: Run the robot
@@ -46,10 +50,22 @@ jobs:
           FORCE_BATCH: ${{ inputs.force_batch }}
         run: python run_pipeline.py
 
+      - name: Make sure ffmpeg is installed
+        if: ${{ inputs.make_video }}
+        run: which ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+
+      - name: Make a Prof. Ubuntu test video
+        if: ${{ inputs.make_video }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python make_video.py
+
       - name: Save the robot's notes
         if: always()
         run: |
           git config user.name "ubuntu-news-robot"
           git config user.email "robot@users.noreply.github.com"
-          for f in queue.json seen.json state.json; do [ -f "$f" ] && git add "$f"; done
+          for f in queue.json seen.json state.json video_state.json; do [ -f "$f" ] && git add "$f"; done
           git diff --cached --quiet || (git commit -m "Robot notes" && git push)
