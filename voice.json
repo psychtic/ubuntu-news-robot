@@ -32,7 +32,7 @@
   ],
   "schedule": {
     "approval_mode": "veto",
-    "veto_hours": 2,
+    "veto_hours": 0.5,
     "hours_between_batches": 8,
     "max_posts_per_day": 3,
     "quiet_hours_start": 22,
