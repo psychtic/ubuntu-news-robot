@@ -1,0 +1,102 @@
+[
+  {
+    "country": "Nigeria",
+    "facts": [
+      "Nigeria is Africa's most populous country, with over 200 million people.",
+      "Nigeria has more than 500 languages.",
+      "Lagos was Nigeria's capital until 1991, when Abuja took over."
+    ],
+    "flex": "Nollywood is one of the largest film industries in the world by number of films produced.",
+    "source": "Britannica"
+  },
+  {
+    "country": "Ghana",
+    "facts": [
+      "Ghana was the first sub-Saharan African country to gain independence from colonial rule, in 1957.",
+      "Ghana is one of the world's biggest cocoa producers.",
+      "Lake Volta in Ghana is one of the largest man-made lakes in the world."
+    ],
+    "flex": "Ghana's independence under Kwame Nkrumah helped inspire other African independence movements.",
+    "source": "Britannica"
+  },
+  {
+    "country": "South Africa",
+    "facts": [
+      "South Africa has three capital cities: Pretoria, Cape Town and Bloemfontein, each hosting a different arm of government.",
+      "South Africa has 11 official languages.",
+      "South Africa is the world's largest producer of platinum."
+    ],
+    "flex": "South Africa was the first African country to host the FIFA World Cup, in 2010.",
+    "source": "Britannica"
+  },
+  {
+    "country": "Egypt",
+    "facts": [
+      "Sudan has more pyramids than Egypt.",
+      "The Great Pyramid of Giza was built about 4,500 years ago.",
+      "The Suez Canal, opened in 1869, connects the Mediterranean Sea and the Red Sea."
+    ],
+    "flex": "The Great Pyramid of Giza was the tallest man-made structure in the world for roughly 3,800 years.",
+    "source": "Britannica"
+  },
+  {
+    "country": "Kenya",
+    "facts": [
+      "M-Pesa, the mobile money service, launched in Kenya in 2007.",
+      "Kenya is famous for its long-distance runners, who have won many Olympic and marathon titles.",
+      "The Great Rift Valley runs through Kenya."
+    ],
+    "flex": "In 2019, Kenya's Eliud Kipchoge ran a marathon in under two hours, though it was not an official record.",
+    "source": "Britannica"
+  },
+  {
+    "country": "Ethiopia",
+    "facts": [
+      "Ethiopia uses a calendar with 13 months.",
+      "The Ethiopian calendar is about seven to eight years behind the Gregorian calendar.",
+      "Coffee is widely believed to have originated in Ethiopia."
+    ],
+    "flex": "Ethiopia defeated Italy at the Battle of Adwa in 1896 and kept its independence.",
+    "source": "Britannica"
+  },
+  {
+    "country": "Lesotho",
+    "facts": [
+      "Lesotho is completely surrounded by South Africa.",
+      "Lesotho is the only country in the world whose entire land is above 1,000 metres.",
+      "Lesotho is known as the Kingdom in the Sky."
+    ],
+    "flex": "Lesotho is a proud kingdom with its own king, language and flag, independent since 1966.",
+    "source": "Britannica"
+  },
+  {
+    "country": "Morocco",
+    "facts": [
+      "Morocco is home to al-Qarawiyyin in Fez, founded in 859 and often called the oldest continuously operating university in the world.",
+      "Spain is only about 14 kilometres from Morocco across the Strait of Gibraltar.",
+      "Morocco has a famous blue city called Chefchaouen."
+    ],
+    "flex": "Morocco reached the World Cup semi-finals in 2022, the first African team to do so.",
+    "source": "Britannica"
+  },
+  {
+    "country": "Senegal",
+    "facts": [
+      "Jollof rice is widely traced back to the Wolof people of Senegal and the Gambia.",
+      "Dakar is the westernmost capital on the African mainland.",
+      "Senegal beat defending champions France 1-0 in the opening match of the 2002 World Cup."
+    ],
+    "flex": "Senegal won the Africa Cup of Nations in early 2022.",
+    "source": "Britannica"
+  },
+  {
+    "country": "Tanzania",
+    "facts": [
+      "Mount Kilimanjaro in Tanzania is the highest mountain in Africa.",
+      "The Anglo-Zanzibar War of 1896 is often called the shortest war in history, lasting about 40 minutes.",
+      "Tanzania was formed in 1964 when Tanganyika and Zanzibar united."
+    ],
+    "flex": "Tanzania is home to the Serengeti, famous for its great wildebeest migration.",
+    "source": "Britannica"
+  }
+]
