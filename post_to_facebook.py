@@ -8,6 +8,10 @@ Two jobs, picked by the word you type after the file name:
 It reads queue.json (kept by telegram_approval.py). Each approved caption is posted
 once, then marked "posted". It never posts a rejected or unapproved caption.
 
+Freshness rule: an approved caption that has been waiting longer than
+"max_draft_age_hours" (in the "schedule" part of voice.json, default 6) is marked
+"expired" and is never posted, so old news does not go out.
+
 Uses only Python's standard library.
 """
 
@@ -232,6 +236,15 @@ def load_schedule():
     }
 
 
+def load_max_draft_age_hours():
+    """How long an approved caption may wait before it is too old to post (default 6 hours)."""
+    try:
+        voice = json.loads((BASE / "voice.json").read_text(encoding="utf-8-sig"))
+        return float((voice.get("schedule") or {}).get("max_draft_age_hours", 6))
+    except Exception:
+        return 6.0
+
+
 def in_quiet_hours(hour, start, end):
     if start > end:  # for example 22 to 7 crosses midnight
         return hour >= start or hour < end
@@ -240,6 +253,24 @@ def in_quiet_hours(hour, start, end):
 
 def save_queue(queue):
     QUEUE_FILE.write_text(json.dumps(queue, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def expire_old_drafts(queue):
+    """Mark approved captions that waited too long as 'expired', so old news never goes out."""
+    max_age = timedelta(hours=load_max_draft_age_hours())
+    now = datetime.now(timezone.utc)
+    changed = False
+    for item in queue["items"]:
+        if item["status"] != "approved" or not item.get("sent_at"):
+            continue
+        age = now - datetime.fromisoformat(item["sent_at"])
+        if age > max_age:
+            item["status"] = "expired"
+            item["expired_at"] = now.isoformat()
+            changed = True
+            print("EXPIRED (too old to post, %.1f hours): %s" % (age.total_seconds() / 3600, item["title"]))
+    if changed:
+        save_queue(queue)
 
 
 # ---------- the two jobs ----------
@@ -275,6 +306,7 @@ def build_message(item):
 def do_post():
     page_id, token = load_config()
     queue = load_queue()
+    expire_old_drafts(queue)  # first, throw away anything too old
     waiting = [item for item in queue["items"] if item["status"] == "approved"]
     if not waiting:
         print("Nothing approved is waiting to be posted.")
