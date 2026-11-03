@@ -1,7 +1,8 @@
 """Step 2: turn stories into Facebook captions using Gemini (free).
 
 Reads stories.json (made by fetch_stories.py) and voice.json (your page's style).
-Asks Gemini to pick the stories that fit your page and write a caption for each.
+Asks Gemini to pick the stories that fit your page and write a caption for each,
+in the format of the day (Policy or Palaver on Monday, Did You Know on Tuesday, ...).
 Saves the result to captions.json for the next step (your approval).
 
 Uses only Python's standard library. Run it with:  python write_captions.py
@@ -12,6 +13,7 @@ import os
 import sys
 import urllib.error
 import urllib.request
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 BASE = Path(__file__).parent
@@ -26,6 +28,39 @@ try:
     sys.stdout.reconfigure(errors="replace")
 except Exception:
     pass
+
+COUNTRIES = ["Nigeria", "South Africa", "Ghana", "Kenya", "Egypt"]
+
+# One format per day of the week (Monday = 0). {country} is filled in on Wednesdays.
+DAILY_FORMATS = [
+    ("Policy or Palaver",
+     "Prefer a story about a government decision, law, policy, price or economic move. "
+     "Say what happened in 1-2 simple sentences, then add one sentence starting with 'Our take:' "
+     "saying whether this looks like it helps Africa move forward or holds it back, and why. "
+     "This is an opinion based only on the headline, so word it carefully. "
+     "End by asking readers to vote: 👍 helping Africa or 👎 holding Africa back."),
+    ("Did You Know",
+     "Prefer a story with a surprising or little-known fact. Open with 'Did you know?' and use ONLY "
+     "a fact that is stated in the headline. Keep it light and a little funny, then ask a question "
+     "that makes people share what they knew."),
+    ("Country of the Week: {country}",
+     "Prefer a story about {country}. If there is none, use any story. Celebrate or playfully roast "
+     "the situation (never the people) and challenge followers from other African countries to compare, "
+     "for example: 'Does your country do this too?'"),
+    ("Hot Take Thursday",
+     "Open with a bold one-sentence opinion about the story, written as the page's own take "
+     "('Our hot take:'). Keep it about the situation, policy or idea, never about people's identity. "
+     "End by asking people to agree or disagree and say why."),
+    ("Africa This Week",
+     "Write it like a quick news-anchor update: start with 'This week in Africa:' then say what happened "
+     "in 1-2 sentences, then add one witty line. Ask which story people think mattered most this week."),
+    ("Friendly Rivalry: football, food, music and slang",
+     "Prefer sports, food, music or culture stories. Use playful banter between countries, never insults "
+     "about people, tribes or religions. Ask followers to defend their country in the comments."),
+    ("Africa Wins",
+     "Prefer a positive story about African achievement, innovation, unity or success. Proud, warm and "
+     "a little witty. Ask readers to name another African win or to tag a friend who should see this."),
+]
 
 
 def get_key():
@@ -49,17 +84,31 @@ def clean_title(story):
     return title.strip()
 
 
-def build_prompt(voice, stories):
+def todays_format(voice):
+    """Pick the format for today, using Nigerian time (from voice.json)."""
+    offset = float((voice.get("schedule") or {}).get("timezone_offset_hours", 0))
+    local = datetime.now(timezone.utc) + timedelta(hours=offset)
+    name, instructions = DAILY_FORMATS[local.weekday()]
+    country = COUNTRIES[local.isocalendar()[1] % len(COUNTRIES)]
+    return name.format(country=country), instructions.format(country=country)
+
+
+def build_prompt(voice, stories, format_name, format_instructions):
     lines = []
     for number, story in enumerate(stories, start=1):
-        lines.append("%d. %s  [source: %s]" % (number, clean_title(story), story["source"]))
+        age = story.get("age_hours")
+        age_text = "reported about %d hours ago" % round(age) if age is not None else "age unknown"
+        lines.append("%d. %s  [source: %s; %s]" % (number, clean_title(story), story["source"], age_text))
     story_list = "\n".join(lines)
 
     return """You are the social media manager for a Facebook page called "{page}".
 Audience: {audience}.
 Tone: {tone}
 
-Below are today's news headlines. Choose only the ones that clearly fit this page, and write a Facebook caption for each one you choose.
+TODAY'S FORMAT: {format_name}
+{format_instructions}
+
+Below are the latest news headlines. Choose only the ones that clearly fit this page, and write a Facebook caption for each one you choose, in today's format. If no headline fits today's format well, still pick the best story that fits the page and write it in the page's normal bold, witty style.
 
 Prefer stories about:
 {prefer}
@@ -68,13 +117,19 @@ Skip stories about:
 {avoid}
 
 STRICT RULES for every caption:
-- Use ONLY facts that appear in the headline. Do not invent numbers, names, dates, quotes or details.
+- Use ONLY facts that appear in the headline. Do not invent numbers, names, dates, quotes, causes or details.
+- Never say "today" or "breaking" for a story reported more than 18 hours ago.
+- Opinions must be clearly marked as the page's own view (for example "Our take:") and must be about the situation, policy or idea, never about a person's identity.
+- Never make claims about a named person that the headline does not state.
+- Roast situations, systems and policies only. Never mock any tribe, religion, nationality, ethnic group or people's looks.
+- Friendly rivalry between countries is welcome, but keep it playful and never hateful.
 - Maximum {words} words, not counting hashtags.
 - Start with a short hook, explain in 1-2 simple sentences, and end with a question that invites comments.
 - End with the line: Source: <source name>
 - Do not include any web link in the caption.
 - Add at most {tags} hashtags. Always include: {always}
-- Stay respectful. No hate, no insults, no endorsing political parties or candidates.
+- No endorsing or attacking political parties or candidates.
+- You may use 1 or 2 emojis.
 
 Headlines:
 {stories}
@@ -88,6 +143,8 @@ Reply with ONLY a JSON list, one object per headline, in this exact shape:
         page=voice["page_name"],
         audience=voice["audience"],
         tone=voice["tone"],
+        format_name=format_name,
+        format_instructions=format_instructions,
         prefer="\n".join("- " + item for item in voice["prefer"]),
         avoid="\n".join("- " + item for item in voice["avoid"]),
         words=voice["max_caption_words"],
@@ -168,10 +225,14 @@ def main():
     stories = json.loads(STORIES_FILE.read_text(encoding="utf-8"))
     if not stories:
         sys.exit("stories.json is empty: no new stories to write about.")
-    voice = json.loads(VOICE_FILE.read_text(encoding="utf-8"))
+    voice = json.loads(VOICE_FILE.read_text(encoding="utf-8-sig"))
+
+    format_name, format_instructions = todays_format(voice)
+    print("Today's format: %s\n" % format_name)
 
     key = get_key()
-    answers, model = ask_with_fallback(key, voice["models"], build_prompt(voice, stories))
+    answers, model = ask_with_fallback(
+        key, voice["models"], build_prompt(voice, stories, format_name, format_instructions))
     print("Used model: %s\n" % model)
 
     chosen, skipped = [], []
