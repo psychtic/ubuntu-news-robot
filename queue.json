@@ -251,12 +251,13 @@
       "source": "Voice of Nigeria",
       "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNbWZOMHRQRTZvS3JUdHluajY2bndqMVcwcnFlNUZKbTNkaHpNQ3lndXpLbnRBVjFVZFYzRkwtMGo3dmwyZEJRRVpIQ0R5NEdybEpuUUFITmNxQ2ltQUQ1VnZ4b1p5UWJhenAxbmhuNW9uXzQtTWpwUGJMbTVwaWhqUm5VQ0pEZw?oc=5",
       "caption": "Country of the Week: Nigeria! 🇳🇬\n\nNigeria and the Africa Women Conference are pushing for gender equality action. Our take: policies that actually include everyone build stronger nations! \n\nDoes your country do this too?\n\nSource: Voice of Nigeria\n\n#PanAfricanism #Nigeria #Ubuntu",
-      "status": "approved",
+      "status": "expired",
       "sent_at": "2026-11-04T16:27:21.654441+00:00",
       "post_after": "2026-11-04T16:57:21.654463+00:00",
       "message_id": 26,
       "decided_at": "2026-11-04T22:02:24.909885+00:00",
-      "auto_released": true
+      "auto_released": true,
+      "expired_at": "2026-11-05T02:38:16.381275+00:00"
     }
   ]
 }
