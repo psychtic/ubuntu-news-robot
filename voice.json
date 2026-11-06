@@ -31,6 +31,7 @@
     "gemini-2.5-flash-lite"
   ],
   "schedule": {
+    "max_draft_age_hours": 24,
     "approval_mode": "veto",
     "veto_hours": 0.5,
     "hours_between_batches": 8,
