@@ -293,10 +293,13 @@
       "source": "Voice of Nigeria",
       "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQeGQ3UkZaek1DNy1xRG5GS0dwSnJTUlA5X29abjJ0cXIwV25QWHY5V1pqWncxXzRmZDJJbjdKQ2Q4dDVYcThheWZ5MlFQVFBWRzN4OXdsU2p1YlRScTNFLURxdlBXR0ZSVVktWi12dzFiY0FNUDhFTFBYUXJVajdxVDB1TmJrdnd5Zzg5SE5vRUEtRDA?oc=5",
       "caption": "This week in Africa: Afreximbank's iDICE targets investment for Nigerian creative and tech firms. 🚀 Our take: fund the youth and watch the continent soar! Which story do you think mattered most this week? 🌍\n\nSource: Voice of Nigeria\n\n#PanAfricanism #Ubuntu #Tech",
-      "status": "sent",
+      "status": "expired",
       "sent_at": "2026-11-06T12:19:10.448174+00:00",
       "post_after": "2026-11-06T12:49:10.448186+00:00",
-      "message_id": 29
+      "message_id": 29,
+      "decided_at": "2026-11-06T19:36:11.024966+00:00",
+      "auto_released": true,
+      "expired_at": "2026-11-06T19:36:11.469181+00:00"
     }
   ]
 }
