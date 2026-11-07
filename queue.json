@@ -307,10 +307,14 @@
       "source": "SAPeople",
       "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPVE03OWRUY1laVUo2R0tpNFQ4MWpVRzRiTVJsOVZ3RGhOakEwQTEyVE5mZ205MDFVb0dMdGMwWm1QVlRiNUtNdTlwZE9VeXpsVGRvSXo5RUhNWTI5cUotVWRjb0NsUDNvRTRPNzdLc244cUk4dWl1TlZnaFRtVVpLMnNsTS1UVEx2UU1WZ3otT2I?oc=5",
       "caption": "South Africa is exporting tactical masterclasses! African giants have just appointed South African coach Fadlu Davids. Our take: Football borders are falling, but can his new squad survive the fierce pressure from fans? Which country is producing the best football brains on the continent right now?\nSource: SAPeople\n#PanAfricanism #UbuntuNews #AfricanFootball",
-      "status": "sent",
+      "status": "posted",
       "sent_at": "2026-11-07T10:47:32.443139+00:00",
       "post_after": "2026-11-07T11:17:32.443150+00:00",
-      "message_id": 30
+      "message_id": 30,
+      "decided_at": "2026-11-07T16:40:57.721600+00:00",
+      "auto_released": true,
+      "posted_at": "2026-11-07T16:41:01.989897+00:00",
+      "fb_post_id": "520041767864473_122190934208743689"
     }
   ]
 }
