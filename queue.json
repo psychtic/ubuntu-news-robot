@@ -322,10 +322,12 @@
       "source": "Complete Sports",
       "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPV2FqV3R2YVl1UTBIaWQwcWFKN2RqVzdEZnc2TzloUndnbFQ0bzZNbzdETVhYdV9qM0Nnb2ZJeFRFVVRIeGNZRFdEbmRKQVN3NnVFWTAxeE8zNXpDWVZTNV9FbXkzeGtlT1pyQ0RWa2NPRVQtUHB4dWhVQzFKS1FOOFp2MC1uSGc2RnVBNlNJNFBvckUwdV9hc3FJOGc?oc=5",
       "caption": "Our girls are showing the world how it is done! The Flamingos defeated Japan 2-1 to claim their first-ever FIFA U-17 WWC title. ⚽🔥 Can any other country match this greatness on the global stage?\n\nSource: Complete Sports\n#PanAfricanism #UbuntuNews #AfricanFootball",
-      "status": "sent",
+      "status": "approved",
       "sent_at": "2026-11-07T20:37:04.810494+00:00",
       "post_after": "2026-11-07T21:07:04.810507+00:00",
-      "message_id": 31
+      "message_id": 31,
+      "decided_at": "2026-11-08T00:05:06.993688+00:00",
+      "auto_released": true
     }
   ]
 }
