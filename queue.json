@@ -337,10 +337,14 @@
       "source": "The Standard",
       "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxObERKTmpQSkpHRTFkLUJRRzJqTzhHU1ZSTUV3RXBzMVM1azZKYUxUYXZ4b0tXM08yWUk0em4yV2VJalB1bnVsdXJYOW5oY1NvY2pxdkp0am5RZWxMajd0MG5Qb0UtM3Jma0xMYmQwN3Y3N3lORkJsRGM3R3hJMFplb3RvdHVhYmZxeWRjQWVsQVZqRUJCb2lzWHpPeXY0eUVtaHhOY0YtcW52MjlTRHNkNHdGd2k0NzBXUDNsY1d2NUZNUQ?oc=5",
       "caption": "Your wallet has real power! Buying local builds Kenya and grows our economy from the ground up. Our take: charity starts at home, and so does real wealth. Who are you buying from today? Tag a friend who needs to see this! 🇰🇪💪\nSource: The Standard\n#PanAfricanism #BuyLocal #AfricaRising",
-      "status": "sent",
+      "status": "posted",
       "sent_at": "2026-11-08T06:25:21.642330+00:00",
       "post_after": "2026-11-08T06:55:21.642343+00:00",
-      "message_id": 32
+      "message_id": 32,
+      "decided_at": "2026-11-08T13:42:54.349238+00:00",
+      "auto_released": true,
+      "posted_at": "2026-11-08T13:42:58.388728+00:00",
+      "fb_post_id": "520041767864473_122191013354743689"
     }
   ]
 }
