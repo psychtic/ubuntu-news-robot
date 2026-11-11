@@ -17,6 +17,8 @@ Uses only Python's standard library.
 
 import json
 import os
+import random
+import re
 import sys
 import time
 import urllib.error
@@ -31,6 +33,7 @@ CONFIG_FILE = BASE / "facebook_config.json"  # holds your Page token. Never shar
 GRAPH = "https://graph.facebook.com/v26.0"
 MAX_POSTS_PER_RUN = int(os.environ.get("FB_MAX_PER_RUN", "3"))  # a safety limit, so a mistake can never flood your page
 USE_IMAGES = not os.environ.get("FB_NO_IMAGES")  # set FB_NO_IMAGES=1 to post text only
+STOCK_PHOTOS = not os.environ.get("FB_NO_STOCK_PHOTOS")  # set FB_NO_STOCK_PHOTOS=1 to go back to the plain gold card
 
 # Old Windows terminals can crash on emojis or Arabic letters. This makes printing safe.
 try:
@@ -115,9 +118,63 @@ def wrap_text(draw, text, font, width):
     return lines
 
 
+STOP_WORDS = set("""about after again against also amid among and are been before being between both but can could
+during each every for from has have her here his how into its just more most new not now off one only other our out over
+says said than that the their them then there these they this those through under until upon was were what when where which
+while who why will with without would year years your""".split())
+
+
+def photo_queries(title):
+    """Turn a headline into 2-3 short searches for Pixabay, best guess first."""
+    words = [w for w in re.findall(r"[a-z]+", title.lower()) if len(w) > 3 and w not in STOP_WORDS]
+    words = [w for w in words if w not in ("africa", "african", "africans")] or words
+    queries = []
+    if len(words) >= 2:
+        queries.append(" ".join(words[:3]))
+    if words:
+        queries.append("africa " + words[0])
+    queries.append("africa")
+    return queries
+
+
+def stock_background(item):
+    """Find a free stock photo (from Pixabay) that fits the headline.
+    Returns (square picture, credit text), or (None, None) so the plain gold card is used."""
+    key = os.environ.get("PIXABAY_API_KEY", "").strip()
+    if not STOCK_PHOTOS or not key:
+        return None, None
+    try:
+        import io
+        from PIL import Image
+        for query in photo_queries(item["title"]):
+            url = "https://pixabay.com/api/?" + urllib.parse.urlencode(
+                {"key": key, "q": query, "image_type": "photo", "safesearch": "true", "per_page": 10})
+            request = urllib.request.Request(url, headers={"User-Agent": "ubuntu-news-robot"})
+            with urllib.request.urlopen(request, timeout=40) as response:
+                photos = json.loads(response.read().decode("utf-8")).get("hits", [])
+            if not photos:
+                continue
+            photo = random.choice(photos[:5])
+            picture_url = photo.get("largeImageURL") or photo["webformatURL"]
+            request = urllib.request.Request(picture_url, headers={"User-Agent": "ubuntu-news-robot"})
+            with urllib.request.urlopen(request, timeout=60) as response:
+                picture = Image.open(io.BytesIO(response.read())).convert("RGB")
+            side = min(picture.width, picture.height)  # cut a square from the middle
+            left, top = (picture.width - side) // 2, (picture.height - side) // 2
+            picture = picture.crop((left, top, left + side, top + side)).resize((CARD_SIZE, CARD_SIZE))
+            print("Stock photo found for: %s" % query)
+            return picture, "Photo: %s / Pixabay" % photo.get("user", "Pixabay")
+        print("Note: no stock photo found. Using the plain card.")
+    except urllib.error.HTTPError as error:
+        print("Note: stock photo failed (%s). Using the plain card." % error.code)
+    except Exception as error:
+        print("Note: stock photo failed (%s). Using the plain card." % error)
+    return None, None
+
+
 def make_card(item):
-    """Draw a square picture: the headline on a dark background with Pan-African colour bars.
-    Needs Pillow (pip install pillow). Returns the path of the saved PNG."""
+    """Draw a square picture: the headline on a stock photo (or, if that fails, on the dark
+    gold card). Needs Pillow (pip install pillow). Returns the path of the saved PNG."""
     from PIL import Image, ImageDraw, ImageFont  # imported here so text posting works without Pillow
 
     font_path = find_font()
@@ -131,10 +188,18 @@ def make_card(item):
               "underline": "#D4AF37", "text": "#FFFFFF"}
     colors.update(voice.get("card_colors", {}))
 
-    image = Image.new("RGB", (CARD_SIZE, CARD_SIZE), colors["background"])
+    picture, credit = stock_background(item)
+    if picture is not None:
+        # Stock photo, darkened so the white words are easy to read. No gold bars.
+        image = Image.blend(picture, Image.new("RGB", (CARD_SIZE, CARD_SIZE), "#000000"), 0.5)
+        colors["page_name"] = colors["underline"] = colors["text"] = "#FFFFFF"
+    else:
+        image = Image.new("RGB", (CARD_SIZE, CARD_SIZE), colors["background"])
     draw = ImageDraw.Draw(image)
     bars = colors["bars"]
     for row_top in (0, CARD_SIZE - 24):  # colour bars, top and bottom
+        if picture is not None:
+            break
         for number, bar_color in enumerate(bars):
             left = number * CARD_SIZE // len(bars)
             right = (number + 1) * CARD_SIZE // len(bars)
@@ -158,7 +223,12 @@ def make_card(item):
         lines[-1] = lines[-1].rstrip(" .,") + "..."
     top = 190 + (box_height - len(lines) * line_height) // 2
     for number, line in enumerate(lines):
-        draw.text((margin, top + number * line_height), line, font=font, fill=colors["text"])
+        draw.text((margin, top + number * line_height), line, font=font, fill=colors["text"],
+                  stroke_width=3 if picture is not None else 0, stroke_fill="#000000")
+    if credit:
+        small = ImageFont.truetype(font_path, 26)
+        draw.text((CARD_SIZE - margin - draw.textlength(credit, font=small), CARD_SIZE - 70), credit,
+                  font=small, fill="#FFFFFF", stroke_width=2, stroke_fill="#000000")
 
     folder = BASE / "cards"
     folder.mkdir(exist_ok=True)
