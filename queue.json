@@ -442,10 +442,14 @@
       "source": "Pulse Ghana",
       "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPdVF0bm9HQ0swQkVNMmlUQ2dQQVlkNldRdjEybnRSUG9DamZPdUp6NkEyeHZrM01wT2k3U0tMb09UMkNHdm1tejA3OEoxMllINnlEQzRNUVJjdFpSTi14VkVQZTU2dlgyVHVlYzBoNW9kZXRKX2JhbllaODNnU0c4SWZUZ1lQQjhkdU1UV1l1LUMzRVZ3?oc=5",
       "caption": "This week in Africa: Ghana is joining Nigeria in a push to produce 80% of essential medicines locally by 2030. Our take: Finally, we stop waiting on others to heal us and start building our own pharmacies. Why rely on imports when we have the brains to manufacture our own? Source: Pulse Ghana #PanAfricanism #SelfReliance",
-      "status": "sent",
+      "status": "posted",
       "sent_at": "2026-11-13T11:19:53.872804+00:00",
       "post_after": "2026-11-13T11:49:53.872815+00:00",
-      "message_id": 41
+      "message_id": 41,
+      "decided_at": "2026-11-13T18:37:56.935194+00:00",
+      "auto_released": true,
+      "posted_at": "2026-11-13T18:38:02.251272+00:00",
+      "fb_post_id": "520041767864473_122191551236743689"
     }
   ]
 }
