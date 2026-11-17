@@ -517,10 +517,25 @@
       "source": "Graphic Online",
       "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNSFRJNFktMFVhd2dwSXNBaW92M0JoYWpmMDZnZ3pCdWtmY0lHMnEyTDlzeWU5MU1CLWY5bDREc0xYZHlhczB2eXdLM1JoOTlHV2ZMSEtQYWVkVHJYQ0F0cEd2c01Dc0xCU2FzZy1yVC0wa2NDU0NRcjJibmE1b002TngtUm5CM3g1QzVJVmF1Q04teVVVTXlTem9KVjIyVHZyS0JwTnAzSjNlSS1lZXNKWUJOR3dEX0djUnF3SXFULXgxeFZZU3paUHlOT3k4WEtWRkVF?oc=5",
       "caption": "Did you know? Ghana has a brand new $60.68 million presidential aircraft, the Dassault Falcon 6X! ✈️ Talk about upgrading the ride while we are still hustling on the ground. \n\nWhat is the funniest thing you have ever seen a VIP ride in?\n\nSource: Graphic Online\n\n#PanAfricanism #Ghana #UbuntuNews",
-      "status": "sent",
+      "status": "posted",
       "sent_at": "2026-11-17T10:54:46.673247+00:00",
       "post_after": "2026-11-17T11:24:46.673257+00:00",
-      "message_id": 47
+      "message_id": 47,
+      "decided_at": "2026-11-17T19:28:57.821144+00:00",
+      "auto_released": true,
+      "posted_at": "2026-11-17T19:29:03.009007+00:00",
+      "fb_post_id": "520041767864473_122191950902743689"
+    },
+    {
+      "id": "d29a8af1",
+      "title": "Guinea-Bissau beat Madagascar, lead Super Eagles in race for AFCON 2027 spot",
+      "source": "Blueprint Newspapers",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOTF9VcGxOaTE5Y1pTdk9qZ1E5bHAzWmMzRThFYzljYTVjUUJQMUd3Rkt1Z1JIWmItWWhNRWNaU290M3RuMkJ3RF9oUXhIZzd0SDB4MzR0d1RscG5jZEIwTTFwNUEzOV9pMGlEWVdXVEotNy1ESUc3TjlyMEdSTE03WlR1bEpEeFpIT2pvVVZpNldaWkp2dlV5TXQ4aWFiUQ?oc=5",
+      "caption": "Did you know? Guinea-Bissau beat Madagascar and is now leading the Super Eagles in the race for an AFCON 2027 spot! ⚽\n\nOur take: African football has zero respect for big reputations.\n\nDid you know Guinea-Bissau was moving like this, or did your predictions fail you?\n\nSource: Blueprint Newspapers\n\n#PanAfricanism #AFCON #AfricanFootball",
+      "status": "sent",
+      "sent_at": "2026-11-17T19:29:30.730763+00:00",
+      "post_after": "2026-11-17T19:59:30.730775+00:00",
+      "message_id": 48
     }
   ]
 }
