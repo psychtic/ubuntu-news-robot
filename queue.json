@@ -532,12 +532,25 @@
       "source": "Blueprint Newspapers",
       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOTF9VcGxOaTE5Y1pTdk9qZ1E5bHAzWmMzRThFYzljYTVjUUJQMUd3Rkt1Z1JIWmItWWhNRWNaU290M3RuMkJ3RF9oUXhIZzd0SDB4MzR0d1RscG5jZEIwTTFwNUEzOV9pMGlEWVdXVEotNy1ESUc3TjlyMEdSTE03WlR1bEpEeFpIT2pvVVZpNldaWkp2dlV5TXQ4aWFiUQ?oc=5",
       "caption": "Did you know? Guinea-Bissau beat Madagascar and is now leading the Super Eagles in the race for an AFCON 2027 spot! ⚽\n\nOur take: African football has zero respect for big reputations.\n\nDid you know Guinea-Bissau was moving like this, or did your predictions fail you?\n\nSource: Blueprint Newspapers\n\n#PanAfricanism #AFCON #AfricanFootball",
-      "status": "approved",
+      "status": "posted",
       "sent_at": "2026-11-17T19:29:30.730763+00:00",
       "post_after": "2026-11-17T19:59:30.730775+00:00",
       "message_id": 48,
       "decided_at": "2026-11-18T01:47:49.105584+00:00",
-      "auto_released": true
+      "auto_released": true,
+      "posted_at": "2026-11-18T09:27:46.827261+00:00",
+      "fb_post_id": "520041767864473_122192011334743689"
+    },
+    {
+      "id": "d29ddbbd",
+      "title": "Presidential Jet Hypocrisy is Sickening - Nitiwul Slams Mahama, Ablakwa, Asiedu Nketia",
+      "source": "Modern Ghana",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1td212QzI5S1dSMkF4eTVCcEpkNW9fcGlHcGlEcElta0d4cDJOc2NDTFRBeTZncVBJWGJzZllEdWVUcWV3RVlCTUNreUpxdFJlSE1RU2c2U0tCTWduc3E0UTRpWdIBXEFVX3lxTFBKNU5MaTRHdWlDcWFXM05LR0RaY3lfS3NocUZBVHA5dVZMQVZ5RXI4X1htcnlSVUE3UENNOEJGaVJLcXN4NDRTMmQ5RkgxdERHRkxWSlJkSlE3cFVl?oc=5",
+      "caption": "Ghanaian jet debates! 🛩️ Our take: Leaders love pointing fingers at each other over presidential transport while the roads still need fixing. Does your country's politicians argue over jet rides too? 🇬🇭\n\nSource: Modern Ghana\n\n#PanAfricanism #Ghana #UbuntuNews",
+      "status": "sent",
+      "sent_at": "2026-11-18T09:27:54.004663+00:00",
+      "post_after": "2026-11-18T09:57:54.004677+00:00",
+      "message_id": 49
     }
   ]
 }
