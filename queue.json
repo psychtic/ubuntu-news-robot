@@ -577,10 +577,25 @@
       "source": "Daily Investor",
       "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQaVpqZ1k0OXFVSjlPQWd2VkVJa3RvYl9fdUdhS24tYXltelE1TExwVnhhekc2d2pBTmhKOWxSdFJrUDVWMEROV204eFJHRE1HOUNKUldCcDE1ekNxdFRUcTR1NTdfMTVhRkNTTDU4V3JKNnpvbHltVzgtMVk2aDM4MHZUNTlVVE9ZeDFKRVNPVHZrVFpBT1ZURjBWbW53d2hGY1RBNl9MTnZCcWJPMU90ckZxZGM5M2IyazE5RVRYNlVFRHNLRGNXQWVTUF9NWmIybFMtZmwxem5FallEOVdqZnBrUm9tYjlTWW5hd1dHTWZfUQ?oc=5",
       "caption": "Our hot take: Big tech deals should uplift the community, not just balance sheets! A top asset manager says Elon Musk missed a trick by not doing a Starlink deal that enriches local communities in South Africa. Do you agree or disagree with this take, and why?\n\n#PanAfricanism #UbuntuNews #Tech\nSource: Daily Investor",
-      "status": "sent",
+      "status": "posted",
       "sent_at": "2026-11-19T08:09:56.489007+00:00",
       "post_after": "2026-11-19T08:39:56.489018+00:00",
-      "message_id": 51
+      "message_id": 51,
+      "decided_at": "2026-11-19T17:29:01.831287+00:00",
+      "auto_released": true,
+      "posted_at": "2026-11-19T17:29:08.087062+00:00",
+      "fb_post_id": "520041767864473_122192151974743689"
+    },
+    {
+      "id": "f2218071",
+      "title": "Guinea Boss Cries ‘Foul’ After Bafana Reclaim Top Spot",
+      "source": "Soccer Laduma",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNZ2JTMEZoR19nZHY0aHB2d3JVdmJfVmhaYW14OTNpalhTQjdTSE1jcm83UW54ekFfUzRqS1kzaHdlaFJZOW9aX2RvNHN3TENOVTRYMVc4cUg3c0p4NjYzNlpPQllvdEVWOFZWRHFCUk1hU0VqcDFadTdNNDcyeEJaVTJqbnhFVWNiYzlFSFNvbHpKY1ZfQ2hrSDZfZ0ppcFg2WlBXbXN3bVJqdzUtSkJBX09YMEFweWk3eXBj?oc=5",
+      "caption": "Our hot take: Football is a game of passion, but crying foul won't change the scoreboard! Bafana Bafana have reclaimed their spot at the top and the competition is feeling the heat. Is the rivalry between Guinea and South Africa the most exciting one in African football right now? Agree or disagree and why? ⚽\nSource: Soccer Laduma\n#PanAfricanism #AfricanFootball #BafanaBafana",
+      "status": "sent",
+      "sent_at": "2026-11-19T17:30:52.278679+00:00",
+      "post_after": "2026-11-19T18:00:52.278692+00:00",
+      "message_id": 52
     }
   ]
 }
