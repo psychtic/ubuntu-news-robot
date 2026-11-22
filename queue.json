@@ -622,10 +622,14 @@
       "source": "MyJoyOnline",
       "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPRkIwUTdGemFDQ3hKTURyWmRkZzh5VzNGUmhsWDl4Ymg2UWkybjNNaFlxbFFQT1lDVEFMMzV5RU00b2szU2ZiVFY2N1dOVHNrQ1NMSk8xN1ZhQ0pHU2p5eEx4ZEZkMzI5TVFnaDVyaUV1d2x2WDVSWWo3S0QzajJRZzR5akc3dmk0N1E1N09FTllLVWY4cFVFXzlmTQ?oc=5",
       "caption": "Own your narrative! Speaker Bagbin is calling on Africans to stop letting others tell our stories and to master technology on our own terms. It is time we take the pen and write our own future. Our take: We have the best stories, let’s make sure the world hears them. What is one African story the world needs to hear? #PanAfricanism #AfricaWins #OwnTheNarrative\nSource: MyJoyOnline",
-      "status": "sent",
+      "status": "posted",
       "sent_at": "2026-11-22T10:30:34.349071+00:00",
       "post_after": "2026-11-22T11:00:34.349081+00:00",
-      "message_id": 54
+      "message_id": 54,
+      "decided_at": "2026-11-22T17:59:13.191311+00:00",
+      "auto_released": true,
+      "posted_at": "2026-11-22T17:59:17.735137+00:00",
+      "fb_post_id": "520041767864473_122192457722743689"
     }
   ]
 }
