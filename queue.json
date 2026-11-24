@@ -637,10 +637,12 @@
       "source": "Ahram Online",
       "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBCa09LS2hiNnhYS1hya0VYdnBITXV0MlEyVF9taTM0RDg4WW9Jb3M1VndvS1FDYkJVbXc3QVRaYVVwZnJsOW5wWllGUERMMjRSSVVUeW9RR0o?oc=5",
       "caption": "Credit where it's due! Egypt’s iScore is using AI to help people without credit history get loans. Our take: This is helping Africa move forward by giving young entrepreneurs and small businesses the tools to grow. 👍 helping Africa or 👎 holding Africa back? \n\nSource: Ahram Online\n#PanAfricanism #Innovation #AfricaRising",
-      "status": "sent",
+      "status": "approved",
       "sent_at": "2026-11-23T13:53:32.120056+00:00",
       "post_after": "2026-11-23T14:23:32.120069+00:00",
-      "message_id": 55
+      "message_id": 55,
+      "decided_at": "2026-11-24T01:23:13.652759+00:00",
+      "auto_released": true
     }
   ]
 }
