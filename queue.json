@@ -666,10 +666,12 @@
       "source": "pan african visions",
       "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPN1R1SEUzUWY0RG5rM0ZBSC1RX0l4blJ1a1V1eGhlNTVQeVdFX1lITW93cmZKa0hCQXJNeUNJOGpBM29zQ3Fxc3FGU0QwWTZBV29RcndrYmxWSUExaTNzSklDbHV5VjdTLXNTWlZKVkYxUllYOC02TzFIUkl1bU5CamNWZ2VSR3VhQjY0X2xwRWhNZkIxamwwVTRqYTVZYl85SEczdzBfMl95aUVRNVpEbnROYw?oc=5",
       "caption": "Our hot take: Making traders jump through endless hoops is just lazy governance disguised as border control. Cameroon is finally being urged to simplify cross-border trade to boost informal businesses, and about time too! Do you agree this will unleash our traders, or will bureaucracy find a new way to delay us? Tell us why below.\n\nSource: pan african visions\n\n#PanAfricanism #Trade #AfricaUnite",
-      "status": "sent",
+      "status": "approved",
       "sent_at": "2026-11-26T15:31:44.863757+00:00",
       "post_after": "2026-11-26T16:01:44.863769+00:00",
-      "message_id": 57
+      "message_id": 57,
+      "decided_at": "2026-11-27T00:10:54.232164+00:00",
+      "auto_released": true
     }
   ]
 }
