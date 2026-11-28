@@ -696,10 +696,25 @@
       "source": "The Guardian Nigeria News",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNM0NPU3FWWTNSbHZ3VUktVklpYUlZTjdoRFltNWt6MUpidmdsbGd2a2V2YmtabXdxWlhnZXlacVNEYTgwSE85aXllY19yTU5NZm1UR1lCSzN6ZEk0TUdPNzd3SDRHSmNGM2JWY1p0aUJYSjRpUXkyVC1ISXE4enNsVDRhb2F1dC1mVHZRaXdYZWE5TkNYaG9hX054UzFTSlNHTkRYaFJMT3Y?oc=5",
       "caption": "Afrobeats takes center stage! Graham BMG exits Next Afrobeats Star after an emotional 'Paradise' performance. Our take: The sound of Africa keeps growing louder across the globe. Can any other continent match our musical rhythm? \n\nSource: The Guardian Nigeria News\n\n#PanAfricanism #Afrobeats #UbuntuNews",
-      "status": "sent",
+      "status": "posted",
       "sent_at": "2026-11-28T09:36:52.196744+00:00",
       "post_after": "2026-11-28T10:06:52.196754+00:00",
-      "message_id": 59
+      "message_id": 59,
+      "decided_at": "2026-11-28T17:52:21.184152+00:00",
+      "auto_released": true,
+      "posted_at": "2026-11-28T17:52:24.963706+00:00",
+      "fb_post_id": "520041767864473_122193094808743689"
+    },
+    {
+      "id": "bd3d3766",
+      "title": "IKEBE 3000 tops UK Afrobeats chart; Davido debuts in US",
+      "source": "TheRadar",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQSFhmY1BBbjR1UHY0QUJ1MXBwaHNpWm1XZmlmRDNsOEdPYUIwUld3MnRxTmRYQlBJcmpvc1hjekdxQ19BN05wZnJXc2RCLXJCSkZEWU90cVRlc3E2Vm9pbHdUdHZYRGhoRlQzZkh4NmlNM2NGSFJiUXhrMDNncTFiQldIS1JHb25KZlk3QXpiLWliOGJDN1I3UHlLRnFvcEQ4eGxZZVNLNTdxT1E3dnhjWnRpdUdTc1VJMlNZ?oc=5",
+      "caption": "Afrobeats to the world! 🌍 IKEBE 3000 is topping the UK chart while Davido makes moves in the US. Our sound is taking over globally and nobody can stop the groove. Which country is dropping the best tracks right now? \n\nSource: TheRadar\n\n#PanAfricanism #Afrobeats #AfricanMusic",
+      "status": "sent",
+      "sent_at": "2026-11-28T17:52:32.656292+00:00",
+      "post_after": "2026-11-28T18:22:32.656306+00:00",
+      "message_id": 60
     }
   ]
 }
